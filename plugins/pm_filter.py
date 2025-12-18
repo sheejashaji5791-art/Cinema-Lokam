@@ -695,17 +695,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer(text=script.PAGE_TXT, show_alert=True)
 
     elif query.data == "start":
-        buttons = [[
-                    InlineKeyboardButton('+ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ +', url=f'http://telegram.me/{temp.U_NAME}?startgroup=true')
-                ],[
-                    InlineKeyboardButton('🧧 ᴛʀᴇɴᴅɪɴɢ ', callback_data="topsearch"),
-                    InlineKeyboardButton('🎟️ ᴜᴘɢʀᴀᴅᴇ ', callback_data="premium"),
-                ],[
-                    InlineKeyboardButton('♻️ ᴅᴍᴄᴀ', callback_data='disclaimer'),
-                    InlineKeyboardButton('👤 ᴀʙᴏᴜᴛ ', callback_data='me')
-                ],[
-                    InlineKeyboardButton('🚫 ᴇᴀʀɴ ᴍᴏɴᴇʏ ᴡɪᴛʜ ʙᴏᴛ 🚫', callback_data="earn")
-                ]]
+        buttons = [
+            [InlineKeyboardButton('🍿 𝑀𝑜𝑣𝑖𝑒 𝐺𝑟𝑜𝑢𝑝 🍿', url='https://t.me/Cinema_Lokam_Movies')],
+            [InlineKeyboardButton('⇉ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴩ ⇇', url=f'http://t.me/{temp.U_NAME}?startgroup=true')],
+            [InlineKeyboardButton('🖥️Oᴛᴛ Uᴘᴅᴀᴛᴇ Cʜᴀɴɴᴇʟ🖥️', url='https://t.me/Cinema_Updates_OTT')],
+            [InlineKeyboardButton('🛠 𝘈𝘣𝘰𝘶𝘵  🛠', callback_data='me')]
+		]
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
             query.message.chat.id, 
@@ -841,11 +836,18 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     
     elif query.data == "me":
         buttons = [[
-            InlineKeyboardButton ('🎁 sᴏᴜʀᴄᴇ', callback_data='source'),
+            InlineKeyboardButton('Dᴇᴛᴀɪʟs', callback_data='me'),
+            InlineKeyboardButton('Sʏsᴛᴇᴍ', callback_data='system'),
+            InlineKeyboardButton('Dᴍᴄᴀ', callback_data='disclaimer'),
         ],[
-            InlineKeyboardButton('⇋ ʙᴀᴄᴋ ᴛᴏ ʜᴏᴍᴇ ⇋', callback_data='start')
+            InlineKeyboardButton('Sᴏᴜʀᴄᴇ Cᴏᴅᴇ', callback_data='source'),
+            InlineKeyboardButton('➥ Bᴀᴄᴋ', callback_data='start')
         ]]
+
         reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text("● ◌ ◌")
+        await query.message.edit_text("● ● ◌")
+        await query.message.edit_text("● ● ●")
         await query.message.edit_text(
             text=script.ABOUT_TXT.format(temp.U_NAME, temp.B_NAME, OWNER_LNK),
             reply_markup=reply_markup,
@@ -854,10 +856,18 @@ async def cb_handler(client: Client, query: CallbackQuery):
         
     elif query.data == "source":
         buttons = [[
-            InlineKeyboardButton('ꜱᴏᴜʀᴄᴇ ᴄᴏᴅᴇ 📜', url='https://github.com/NBBotz/Auto-Filter-Bot.git'),
-            InlineKeyboardButton('⇋ ʙᴀᴄᴋ ⇋', callback_data='me')
+            InlineKeyboardButton('Dᴇᴛᴀɪʟs', callback_data='me'),
+            InlineKeyboardButton('Sʏsᴛᴇᴍ', callback_data='system'),
+            InlineKeyboardButton('Dᴍᴄᴀ', callback_data='disclaimer'),
+        ],[
+            InlineKeyboardButton('Sᴏᴜʀᴄᴇ Cᴏᴅᴇ', callback_data='source'),
+            InlineKeyboardButton('➥ Bᴀᴄᴋ', callback_data='start')
         ]]
+
         reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text("● ◌ ◌")
+        await query.message.edit_text("● ● ◌")
+        await query.message.edit_text("● ● ●")
         await query.message.edit_text(
             text=script.SOURCE_TXT,
             reply_markup=reply_markup,
@@ -867,17 +877,55 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "ref_point":
         await query.answer(f'You Have: {referdb.get_refer_points(query.from_user.id)} Refferal points.', show_alert=True)
     
-    
     elif query.data == "disclaimer":
-            btn = [[
-                    InlineKeyboardButton("⇋ ʙᴀᴄᴋ ⇋", callback_data="start")
-                  ]]
-            reply_markup = InlineKeyboardMarkup(btn)
+        buttons = [[
+            InlineKeyboardButton('Dᴇᴛᴀɪʟs', callback_data='me'),
+            InlineKeyboardButton('Sʏsᴛᴇᴍ', callback_data='system'),
+            InlineKeyboardButton('Dᴍᴄᴀ', callback_data='disclaimer'),
+        ],[
+            InlineKeyboardButton('Sᴏᴜʀᴄᴇ Cᴏᴅᴇ', callback_data='source'),
+            InlineKeyboardButton('➥ Bᴀᴄᴋ', callback_data='start')
+        ]]
+
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text("● ◌ ◌")
+        await query.message.edit_text("● ● ◌")
+        await query.message.edit_text("● ● ●")
             await query.message.edit_text(
                 text=(script.DISCLAIMER_TXT),
                 reply_markup=reply_markup,
                 parse_mode=enums.ParseMode.HTML 
-            )
+			)
+    elif query.data == "system":
+        buttons = [[
+            InlineKeyboardButton('Dᴇᴛᴀɪʟs', callback_data='me'),
+            InlineKeyboardButton('Sʏsᴛᴇᴍ', callback_data='system'),
+            InlineKeyboardButton('Dᴍᴄᴀ', callback_data='disclaimer'),
+        ],[
+            InlineKeyboardButton('Sᴏᴜʀᴄᴇ Cᴏᴅᴇ ', callback_data='source'),
+            InlineKeyboardButton('➥ Bᴀᴄᴋ', callback_data='start')
+        ]]
+
+        reply_markup = InlineKeyboardMarkup(buttons)
+
+        # Get styled system info
+        sys_info = get_system_info_styled()
+        latency = await calculate_latency()
+
+        final_text = (
+            f"{sys_info}"
+            f" 📡 𝑹𝒆𝒔𝒑𝒐𝒏𝒔𝒆 𝑻𝒊𝒎𝒆: {latency}"
+        )
+
+        await query.message.edit_text("● ◌ ◌")
+        await query.message.edit_text("● ● ◌")
+        await query.message.edit_text("● ● ●")
+
+        await query.message.edit_text(
+            text=final_text,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+		)
 
     elif query.data.startswith("grp_pm"):
         _, grp_id = query.data.split("#")
