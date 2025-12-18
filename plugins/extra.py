@@ -105,3 +105,43 @@ async def set_commands(client, message):
     await asyncio.sleep(119)  
     await bot_set.delete()
     await message.delete()
+def get_system_info_styled():
+    bot_uptime = format_time(time.time() - start_time)
+    os_info = f"{platform.system()}"
+    
+    # System uptime
+    try:
+        with open('/proc/uptime') as f:
+            system_uptime = format_time(float(f.readline().split()[0]))
+    except Exception:
+        system_uptime = "Unavailable"
+
+    # RAM
+    try:
+        with open('/proc/meminfo') as f:
+            meminfo = f.readlines()
+            total_ram = get_size(meminfo[0].split()[1])
+            available_ram = get_size(meminfo[2].split()[1])
+            used_ram = get_size(int(meminfo[0].split()[1]) - int(meminfo[2].split()[1]))
+    except Exception:
+        total_ram, used_ram = "Unavailable", "Unavailable"
+
+    # Disk
+    try:
+        total_disk, used_disk, _ = shutil.disk_usage("/")
+        total_disk = get_size(total_disk // 1024)
+        used_disk = get_size(used_disk // 1024)
+    except Exception:
+        total_disk, used_disk = "Unavailable", "Unavailable"
+
+    # Styled text
+    styled_info = (
+        "<blockquote>Sʏsᴛᴇᴍ Rᴇᴘᴏʀᴛ ▷</blockquote>\n\n"
+        f"OS: {os_info}\n"
+        f"Bᴏᴛ Uᴘᴛɪᴍᴇ: {bot_uptime}\n"
+        f"Hᴏsᴛ Uᴘᴛɪᴍᴇ: {system_uptime}\n\n"
+        f"RAM 𝑼𝒔𝒂𝒈𝒆: {used_ram} / {total_ram}\n"
+        f"Dɪsᴋ Sᴘᴀᴄᴇ: {used_disk} / {total_disk}\n"
+    )
+    return styled_info"
+    
