@@ -143,5 +143,5 @@ def get_system_info_styled():
         f"RAM 𝑼𝒔𝒂𝒈𝒆: {used_ram} / {total_ram}\n"
         f"Dɪsᴋ Sᴘᴀᴄᴇ: {used_disk} / {total_disk}\n"
     )
-    return styled_info"
+    return styled_info
     
