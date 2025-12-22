@@ -136,7 +136,7 @@ def get_system_info_styled():
 
     # Styled text
     styled_info = (
-        "<blockquote> വെറും ഷോ..☠️</blockquote>\n\n"
+        "<blockquote><b> വെറും ഷോ..☠️</b></blockquote>\n\n"
         f"OS: {os_info}\n"
         f"Bᴏᴛ Uᴘᴛɪᴍᴇ: {bot_uptime}\n"
         f"Hᴏsᴛ Uᴘᴛɪᴍᴇ: {system_uptime}\n\n"
