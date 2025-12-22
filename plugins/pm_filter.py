@@ -152,14 +152,16 @@ async def generic_filter_handler(client, query, key, offset, search_query):
     btn = []
     if settings.get('button'):
         for file in files:
-            btn.append([InlineKeyboardButton(
-                text=f"{silent_size(file.file_size)}| {extract_tag(file.file_name)} {clean_filename(file.file_name)}",
-                callback_data=f'file#{file.file_id}'
-            )])
+            btn.append(
+	                [
+                    InlineKeyboardButton(text=f"❄️ {get_size(file.file_size)} 🧊 " + clean_filename(
+                        file.file_name), callback_data=f'file#{file.file_id}'),
+					])
     btn.insert(0, [
-        InlineKeyboardButton("ᴘɪxᴇʟ", callback_data=f"qualities#{key}#0"),
-        InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇ", callback_data=f"languages#{key}#0"),
-        InlineKeyboardButton("ꜱᴇᴀꜱᴏɴ",  callback_data=f"seasons#{key}#0")
+                [ 
+                    InlineKeyboardButton("📰 Lᴀɴɢᴜᴀɢᴇ", callback_data=f"languages#{key}#0"),
+                    InlineKeyboardButton("Qᴜᴀʟɪᴛʏ 📮", callback_data=f"qualities#{key}#0")
+				]
     ])
     btn.insert(1, [InlineKeyboardButton("📥 Sᴇɴᴅ Aʟʟ 📥", callback_data=f"sendfiles#{key}")])
     await build_pagination_buttons(btn, total_results, offset, n_offset, req, key, settings)
