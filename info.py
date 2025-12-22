@@ -22,7 +22,7 @@ BOT_TOKEN = environ.get('BOT_TOKEN', "7996680610:AAG8leAamsgJilKuninAhe8WSRqLF62
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
 USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', True))
 
-PICS = (environ.get('PICS', 'https://graph.org/file/b086470fb185ca49388e1-cffa4c648c87914166.jpg https://graph.org/file/44a56feeb1eb18ba63ade-c4a4efb85f6ccc0274.jpg')).split() 
+PICS = (environ.get('PICS', 'https://graph.org/file/9b9019401b65ac5478d17-0b7e4b276ec37f83ce.jpg https://graph.org/file/8b89c9428d5fba1636475-c83e369419edbbdca6.jpg')).split() 
 NOR_IMG = environ.get("NOR_IMG", "https://graph.org/file/62efbcc4e7580b76530ba.jpg")
 MELCOW_VID = environ.get("MELCOW_VID", "https://graph.org/file/e215d12bfd4fa2155e90e.mp4")
 SPELL_IMG = environ.get("SPELL_IMG", "https://graph.org/file/13702ae26fb05df52667c.jpg")
