@@ -141,43 +141,86 @@ async def build_pagination_buttons(btn, total_results, current_offset, next_offs
          btn.append(pagination_row)
 
 async def generic_filter_handler(client, query, key, offset, search_query):
-    files, n_offset, total_results = await get_search_results(query.message.chat.id, search_query, offset=offset, filter=True)
+    files, n_offset, total_results = await get_search_results(
+        query.message.chat.id,
+        search_query,
+        offset=offset,
+        filter=True
+    )
+
     if not files:
-        await query.answer("🚫 ɴᴏ ꜰɪʟᴇꜱ ᴡᴇʀᴇ ꜰᴏᴜɴᴅ 🚫", show_alert=1)
+        await query.answer("🚫 ɴᴏ ꜰɪʟᴇꜱ ᴡᴇʀᴇ ꜰᴏᴜɴᴅ 🚫", show_alert=True)
         return
+
     temp.GETALL[key] = files
     chat_id = query.message.chat.id
     settings = await get_settings(chat_id)
     req = query.from_user.id
+
     btn = []
+
+    # File buttons (only if button mode enabled)
     if settings.get('button'):
         for file in files:
-            btn.append(
-	                [
-                    InlineKeyboardButton(text=f"❄️ {get_size(file.file_size)} 🧊 " + clean_filename(
-                        file.file_name), callback_data=f'file#{file.file_id}'),
-					])
+            btn.append([
+                InlineKeyboardButton(
+                    text=f"❄️ {get_size(file.file_size)} 🧊 {clean_filename(file.file_name)}",
+                    callback_data=f"file#{file.file_id}"
+                )
+            ])
+
+    # Top filter buttons (FIXED STRUCTURE)
     btn.insert(0, [
-                [ 
-                    InlineKeyboardButton("📰 Lᴀɴɢᴜᴀɢᴇ", callback_data=f"languages#{key}#0"),
-                    InlineKeyboardButton("Qᴜᴀʟɪᴛʏ 📮", callback_data=f"qualities#{key}#0")
-				]
+        InlineKeyboardButton("📰 Lᴀɴɢᴜᴀɢᴇ", callback_data=f"languages#{key}#0"),
+        InlineKeyboardButton("Qᴜᴀʟɪᴛʏ 📮", callback_data=f"qualities#{key}#0")
     ])
-    btn.insert(1, [InlineKeyboardButton("📥 Sᴇɴᴅ Aʟʟ 📥", callback_data=f"sendfiles#{key}")])
-    await build_pagination_buttons(btn, total_results, offset, n_offset, req, key, settings)
-    cap = ""
+
+    # Send all button
+    btn.insert(1, [
+        InlineKeyboardButton("📥 Sᴇɴᴅ Aʟʟ 📥", callback_data=f"sendfiles#{key}")
+    ])
+
+    # Pagination buttons
+    await build_pagination_buttons(
+        btn,
+        total_results,
+        offset,
+        n_offset,
+        req,
+        key,
+        settings
+    )
+
+    # Caption mode (text + buttons)
     if not settings.get('button'):
-        curr_time = datetime.now(pytz.timezone('Asia/Kolkata')).time()
-        time_difference = timedelta(hours=curr_time.hour, minutes=curr_time.minute, seconds=(curr_time.second+(curr_time.microsecond/1000000))) - timedelta(hours=curr_time.hour, minutes=curr_time.minute, seconds=(curr_time.second+(curr_time.microsecond/1000000)))
-        remaining_seconds = "{:.2f}".format(time_difference.total_seconds())
-        cap = await get_cap(settings, remaining_seconds, files, query, total_results, search_query, offset)
+        remaining_seconds = "0.00"  # fixed (no fake calculation)
+
+        cap = await get_cap(
+            settings,
+            remaining_seconds,
+            files,
+            query,
+            total_results,
+            search_query,
+            offset
+        )
+
         try:
-            await query.message.edit_text(text=cap, reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=True, parse_mode=enums.ParseMode.HTML)
+            await query.message.edit_text(
+                text=cap,
+                reply_markup=InlineKeyboardMarkup(btn),
+                disable_web_page_preview=True,
+                parse_mode=enums.ParseMode.HTML
+            )
         except MessageNotModified:
             pass
+
+    # Button-only mode
     else:
         try:
-            await query.edit_message_reply_markup(reply_markup=InlineKeyboardMarkup(btn))
+            await query.edit_message_reply_markup(
+                reply_markup=InlineKeyboardMarkup(btn)
+            )
         except MessageNotModified:
             pass
 
