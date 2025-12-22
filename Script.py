@@ -1,7 +1,7 @@
 class script(object):
     START_TXT = """<b>𝙷𝚎𝚢, {} 👋</b>
 
-<blockquote>𝒲𝒆𝒍𝒄𝒐𝒎𝒆 𝒯𝒐 𝒯𝒉𝒆 𝓦𝒐𝒓𝒍𝒅 𝓞𝒇 𝓜𝒂𝒅𝒏𝒆𝒔𝒔 <blockquote>
+<blockquote><b>𝒲𝒆𝒍𝒄𝒐𝒎𝒆 𝒯𝒐 𝒯𝒉𝒆 𝓦𝒐𝒓𝒍𝒅 𝓞𝒇 𝓜𝒂𝒅𝒏𝒆𝒔𝒔</b> </blockquote>
 
 <b>𝗜 ᴄᴀɴ ᴘʀᴏᴠɪᴅᴇ ᴍᴏᴠɪᴇꜱ ɪɴ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴘꜱ.  
 𝗬ᴏᴜ ᴄᴀɴ ꜱᴇᴀʀᴄʜ ᴍᴏᴠɪᴇꜱ ɪɴ ʙᴏᴛ ᴘᴍ.  
