@@ -52,6 +52,23 @@ class temp(object):
     IMDB_CAP = {}
     VERIFICATIONS = {}
 
+async def is_subscribed(bot, query=None, userid=None):
+    try:
+        if userid == None and query != None:
+            user = await bot.get_chat_member(AUTH_CHANNEL, query.from_user.id)
+        else:
+            user = await bot.get_chat_member(AUTH_CHANNEL, int(userid))
+    except UserNotParticipant:
+        pass
+    except Exception as e:
+        logger.exception(e)
+    else:
+        if user.status != enums.ChatMemberStatus.BANNED:
+            return True
+
+    return False
+        
+
     
 async def is_check_admin(bot, chat_id, user_id):
     try:
