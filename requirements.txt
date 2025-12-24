@@ -11,6 +11,8 @@ shortzy
 datetime
 pytz
 aiohttp
+pyrogram
+openai
 opencv-python-headless==4.8.1.78
 python-dotenv==0.21.1
 speedtest
