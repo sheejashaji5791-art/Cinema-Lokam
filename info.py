@@ -62,6 +62,7 @@ UPDATE_CHANNEL_LNK = environ.get('UPDATE_CHANNEL_LNK', 'https://t.me/Cinema_Upda
 AUTH_CHANNEL = environ.get("AUTH_CHANNEL", "-1001681286512") # add multiple channels here, separated by single space
 AUTH_REQ_CHANNEL = environ.get('AUTH_REQ_CHANNEL', '-100')
 
+VERIFY = bool(environ.get('VERIFY', False))
 IS_VERIFY = is_enabled('IS_VERIFY', False)
 LOG_VR_CHANNEL = int(environ.get('LOG_VR_CHANNEL', '-100'))
 LOG_API_CHANNEL = int(environ.get('LOG_API_CHANNEL', '-100'))
