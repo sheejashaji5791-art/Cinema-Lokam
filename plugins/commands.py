@@ -99,7 +99,7 @@ async def start(client, message):
             [InlineKeyboardButton('⇉ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴩ ⇇', url=f'http://t.me/{temp.U_NAME}?startgroup=true')],
             [InlineKeyboardButton('🖥️Oᴛᴛ Uᴘᴅᴀᴛᴇ Cʜᴀɴɴᴇʟ🖥️', url='https://t.me/Cinema_Updates_OTT')],
             [InlineKeyboardButton('🛠 Aʙᴏᴜᴛ  🛠', callback_data='me')],
-			[InlineKeyboardButton('🎁 𝑪𝒍𝒐𝒏𝒆 🪩', callback_data='about')]
+			[InlineKeyboardButton('🎁 𝑪𝒍𝒐𝒏𝒆 🪩', callback_data='clone')]
 		]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
