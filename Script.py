@@ -337,6 +337,12 @@ Some dank memes for fun or whatever!
 ᴇxᴀᴍᴘʟᴇ : Loki S01E01
 
 🚯 ᴅᴏɴᴛ ᴜꜱᴇ ➠ ':(!,./)"""
+    CAPTION = """<blockquote><b>📁 Fɪʟᴇ Nᴀᴍᴇ: 📄 <code>{file_name}</code>
+
+💾 Fɪʟᴇ Sɪᴢᴇ:  📦 <code>{file_size}</code>
+
+<a href="https://t.me/Cinema_Updates_OTT">[⚡ Jᴏɪɴ ᴄɪɴᴇᴍᴀ ʟᴏᴋᴀᴍ ⚡]</a></b></blockquote>
+"""
     LOGO = """
   ____  _ _            _  __  ______        _       
  / ___|(_) | ___ _ __ | |_\ \/ / __ )  ___ | |_ ____
