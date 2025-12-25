@@ -29,7 +29,7 @@ async def on_clone(self, message):
         bot_id = re.findall(r'\d[0-9]{8,10}', message.text)
 
         if not str(message.forward_from.id) != "93372553":
-            msg = await message.reply_text(f" <code>{bot_token}</code>\n\n ♻️𝙰𝚖 𝚃𝚛𝚢𝚒𝚗𝚐 𝚃𝚘 𝙲𝚕𝚘𝚗𝚎 𝚄𝚛 𝙱𝚘𝚝 𝚆𝚊𝚒𝚝 𝙰 𝙼𝚒𝚗𝚞𝚝𝚎♻️")
+            msg = await message.reply_text(f" <code>{bot_token}</code>\n\n 🤍 𝑷𝒍𝒛 𝑾𝒂𝒊𝒕 𝑰 𝑻𝒓𝒚𝒊𝒏𝒈 𝑻𝒐 𝑪𝒍𝒐𝒏𝒆 𝒀𝒐𝒖𝒓 𝑩𝒐𝒕. 𝑾𝒂𝒊𝒕 𝑨 𝑴𝒊𝒏𝒖𝒕𝒆")
             try:
                 ai = Client(
                     f"{bot_token}", API_ID, API_HASH,
@@ -50,10 +50,10 @@ async def on_clone(self, message):
                 clonedme.ME = bot.id
                 clonedme.U_NAME = bot.username
                 clonedme.B_NAME = bot.first_name
-                await msg.edit_text(f"𝚂𝚞𝚌𝚌𝚎𝚜𝚏𝚞𝚕𝚕𝚢 𝙲𝚕𝚘𝚗𝚎𝚍 𝚢𝚘𝚞𝚛 @{bot.username} .\n\n⚠️ <u>𝙳𝚘 𝙽𝚘𝚝 𝚂𝚎𝚗𝚍 𝚃𝚘 𝙰𝚗𝚢 𝙾𝚗𝚎</u> 𝚃𝚑𝚎 𝙼𝚎𝚜𝚜𝚊𝚐𝚎 𝚆𝚒𝚝𝚑 <u>𝚃𝚑𝚎 𝚃𝚘𝚔𝚎𝚗</u> 𝙾𝚏 𝚃𝚑𝚎 𝙱𝚘𝚝, 𝚆𝚑𝚘 𝙷𝚊𝚜 𝙸𝚝 𝙲𝚊𝚗 𝙲𝚘𝚗𝚝𝚛𝚘𝚕 𝚈𝚘𝚞𝚛 𝙱𝚘𝚝!\n<i>𝙸𝚏 𝚈𝚘𝚞 𝚃𝚑𝚒𝚗𝚔 𝚂𝚘𝚖𝚎𝚘𝚗𝚎 𝙵𝚘𝚞𝚗𝚍 𝙾𝚞𝚝 𝙰𝚋𝚘𝚞𝚝 𝚈𝚘𝚞𝚛 𝙱𝚘𝚝 𝚃𝚘𝚔𝚎𝚗, 𝙶𝚘 𝚃𝚘 @Botfather, 𝚄𝚜𝚎 /revoke 𝙰𝚗𝚍 𝚃𝚑𝚎𝚗 𝚂𝚎𝚕𝚎𝚌𝚝 @{bot.username}</i>")
+                await msg.edit_text(f"<u>𝘚𝘶𝘤𝘤𝘦𝘴𝘧𝘶𝘭𝘭𝘺 𝘊𝘭𝘰𝘯𝘦𝘥 𝘠𝘰𝘶𝘳 𝘉𝘰𝘵 </u> @{bot.username} .\n\n⚠️ <u>𝑫𝒐 𝑵𝒐𝒕 𝑺𝒆𝒏𝒅 𝑻𝒐 𝑨𝒏𝒚 𝑶𝒏𝒆 𝑻𝒉𝒆 𝑴𝒆𝒔𝒔𝒂𝒈𝒆 𝑾𝒊𝒕𝒉 <b>Bᴏᴛ Tᴏᴋᴇɴ</b></u> 𝐨𝐟 𝐲𝐨𝐮𝐫 𝐛𝐨𝐭, 𝑊ℎ𝑜 ℎ𝑎𝑠 𝑖𝑡 𝑐𝑎𝑛 𝑐𝑜𝑛𝑡𝑟𝑜𝑙 𝑦𝑜𝑢𝑟 𝐵𝑜𝑡!\n<i>𝑖𝑓 𝑦𝑜𝑢 𝑡ℎ𝑖𝑛𝑘 𝐴𝑛𝑦𝑜𝑛𝑒 𝑓𝑜𝑢𝑛𝑑 𝑜𝑢𝑡 𝑌𝑜𝑢𝑟 𝐵𝑜𝑡 𝑇𝑜𝑘𝑒𝑛, 𝐺𝑜 𝑇𝑜 @Botfather, 𝑈𝑠𝑒 /revoke 𝑎𝑛𝑑 𝑡ℎ𝑒𝑛 𝐹𝑜𝑟𝑤𝑎𝑟𝑑 𝑁𝑒𝑤 𝑇𝑜𝑘𝑒𝑛</i>")
             except BaseException as e:
                 logging.exception("Error while cloning bot.")
-                await msg.edit_text(f"⚠️ <b>𝙱𝙾𝚃 𝙴𝚁𝚁𝙾𝚁:</b>\n\n<code>{e}</code>\n\n❔ 𝙵𝚘𝚛𝚠𝚊𝚛𝚍 𝚃𝚑𝚒𝚜 𝙼𝚎𝚜𝚜𝚊𝚐𝚎 𝚃𝚘 @Lallu_tgs 𝚃𝚘 𝙱𝚎 𝙵𝚒𝚡𝚎𝚍.")
+                await msg.edit_text(f"⚠️ <b>𝑩𝑶𝑻 𝑬𝑹𝑹𝑶𝑹:</b>\n\n<code>{e}</code>\n\n❔ 𝑭𝒐𝒓𝒘𝒂𝒓𝒅 𝑻𝒉𝒊𝒔 𝑴𝒆𝒔𝒔𝒂𝒈𝒆 𝑻𝒐 @Aswanthcreater 𝑻𝒐 𝑩𝒆 𝑭𝒊𝒙𝒆𝒅.")
     except Exception as e:
         logging.exception("Error while handling message.")
 
