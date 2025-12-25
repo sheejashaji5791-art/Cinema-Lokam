@@ -35,6 +35,7 @@ LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1003326626023'))
 BIN_CHANNEL = int(environ.get('BIN_CHANNEL', '-1003326626023'))  
 MOVIE_UPDATE_CHANNEL = int(environ.get('MOVIE_UPDATE_CHANNEL', '-1001681286512'))  
 PREMIUM_LOGS = int(environ.get('PREMIUM_LOGS', '-100')) 
+AUTH_USERS = (auth_users + ADMINS) if auth_users else []
 auth_grp = environ.get('AUTH_GROUP')
 AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
 reqst_channel = environ.get('REQST_CHANNEL_ID', '-100') 
