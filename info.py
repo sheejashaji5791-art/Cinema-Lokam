@@ -65,7 +65,7 @@ CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/Cinema_Updates_OTT')
 OWNER_LNK = environ.get('OWNER_LNK', 'https://t.me/Aswanthcreator')
 UPDATE_CHANNEL_LNK = environ.get('UPDATE_CHANNEL_LNK', 'https://t.me/Cinema_Updates_OTT')
 
-AUTH_CHANNEL = environ.get("AUTH_CHANNEL", "-1001681286512") # add multiple channels here, separated by single space
+AUTH_CHANNEL = environ.get("AUTH_CHANNEL", "-1003363230006") # add multiple channels here, separated by single space
 AUTH_REQ_CHANNEL = environ.get('AUTH_REQ_CHANNEL', '-100')
 
 VERIFY = bool(environ.get('VERIFY', False))
